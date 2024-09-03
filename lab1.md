@@ -17,7 +17,7 @@ Instructions:
 ## Coding Challenges
 
  ### Challenge 1 - Adding numbers
-```
+```swift
 let num2 = 20
 print("The sum is \(sum)")
 let num1 = 10
@@ -27,7 +27,7 @@ This program should print `The sum is 30.`
 
 
  ### Challenge 2 - Changing the value of a variable
- ```
+ ```swift
 name = newName
 var name = "Twitter"
 var newName = "X"
@@ -36,7 +36,7 @@ print("Twitter now goes by the name \(newName).")
 This program should print `Twitter now goes by the name X.`
 
 ### Challenge 3 - Swapping the value of two variables
-```
+```swift
 let temp = var1
 var var1 = 10
 var var2 = 20
@@ -55,7 +55,7 @@ The value of var2  is 10.
 #### Hint: If the program doesn't print anything, you may have created an infinite loop!
 
 ### Challenge 4 - An IF-ELSE statement
-```
+```swift
 let number = -3
 if number > 0 {
     print("\(number) is negative")
