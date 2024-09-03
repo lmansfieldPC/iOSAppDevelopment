@@ -8,7 +8,7 @@ Since you might not have your local environments set-up yet, we will use the onl
 
 Instructions:
 
-1. There are 5 coding challenges below. The first 4 challenges includes all the lines for a successful program. But the order of the lines in incorrect. You must rearrange the lines until the program runs as expected. The last challenge has you write your own program.
+1. There are 5 coding challenges below. The first 4 challenges include all the lines needed for a working program, but the lines are out of order. Your task is to rearrange the lines so the program runs correctly. For the last challenge, you'll need to write your own program.
 2. Copy and paste the starter code into https://swiftplayground.run/ to run in and test your rearrangement of the lines.
 3. When you have finished, copy and paste your code into a file (a Google doc will do), and submit it to the Hub. 
 
