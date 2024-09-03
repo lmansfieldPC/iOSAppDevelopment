@@ -22,4 +22,12 @@ print(myNumConstant)
 myNumConstant = 20 //This causes a problem and Swift will not compile.
 ```
 
+## Data Types
+There are 4 simple types of data that can be stored in Swift.
+- Int: integer values
+- Double: decimal values[^1]
+- Bool: boolean values are `true` or `false`
+- String: sequences of characters, like a word or passcode.
 
+
+[^1]: Doubles are so-named because they have double the amount of accuracy as a float. Floats have up to 7 digits. Doubles have 15-16 digits.
