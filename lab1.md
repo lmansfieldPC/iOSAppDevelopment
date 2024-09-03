@@ -54,7 +54,7 @@ The value of var2  is 10.
 
 #### Hint: If the program doesn't print anything, you may have created an infinite loop!
 
-### Challenge 4 - An IF-ELSE Statement
+### Challenge 4 - An IF-ELSE statement
 ```
 let number = -3
 if number > 0 {
@@ -65,7 +65,7 @@ if number > 0 {
 ```
 This program should print `-3 is negative`.
 
-## Final Challenge
+## Challenge 5 - Your own program
 
 Use what you've seen above to write your own short program.
 The program should start with three variables, `a`, `b`, and `c`. It should add the variables and store the result into a new variable `sum`. Finally, it should print the final value of `sum`.
