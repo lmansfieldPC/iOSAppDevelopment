@@ -1,5 +1,9 @@
 import UIKit
 
+//teachers notes
+//- go over 
+
+
 //Variables and Constants/////////////////////////////////////////////////
 
 //initialize and set the value of myNum

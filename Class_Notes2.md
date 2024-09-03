@@ -34,6 +34,7 @@ There are 4 simple types of data that can be stored in Swift.
 var myInt = 10
 var myDouble = 3.141519
 var myBool = true
+var myString = 
 ```
 Some data types can be combined, while others cannot.
 
