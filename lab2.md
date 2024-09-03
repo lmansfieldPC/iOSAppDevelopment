@@ -1,5 +1,5 @@
 
-# Lab: Exploring Constants, Variables, and Data Types in Swift
+# Lab 2: Exploring Constants, Variables, and Data Types in Swift
 
 ### Objective
 
