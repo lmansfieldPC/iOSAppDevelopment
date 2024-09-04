@@ -1,7 +1,7 @@
 # Lab 3 
 
 ### Getting Started: 
-Create a new playground in Xcode and name is `Lab2_ArraysAndDictionaries`.
+Create a new playground in Xcode and name it `Lab2_ArraysAndDictionaries`.
 
 
 1. **Warm-Up**: Review constants and variables.
