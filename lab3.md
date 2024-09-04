@@ -22,7 +22,7 @@ $$C = \frac{5}{9}(F-32)$$
 - Print the type of the array using the `type` method.
 
 3. **Dictionaries**
-- Copy the following dictionary into your playgroun.
+- Copy the following dictionary into your playground.
 ```swift
 // A dictionary where each key is a country and the corresponding value is the capital.
 let countryCapitals: [String: String] = [
@@ -34,7 +34,7 @@ let countryCapitals: [String: String] = [
 ]
 ```
 - Add two more countries and their corresponding capitals to the dictionary.
-- Save the capital of France into a new constant call `franceCapital` and print it. **Hint**: Don't forget to use a default value!
+- Save the capital of France into a new constant called `franceCapital` and print it. **Hint**: Don't forget to use a default value!
 - Print all the keys of the dictionary.
 - Print all the values of the dictionary.
 
