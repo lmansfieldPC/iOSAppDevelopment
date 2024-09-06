@@ -93,7 +93,22 @@ myName += " Kitty"
 ```
 
 
+## Vocabulary Covered
 
+1.  Constant
+1.  Variable
+1.  Mutable
+1.  Immutable
+1.  Data type
+1.  Int
+1.  Double
+1.  Boolean
+1.  String
+1.  String Interpolation
+1.  Operator
+1.  Compound Operator
+1.  Initialize
+1.  Compile
 
 
 
