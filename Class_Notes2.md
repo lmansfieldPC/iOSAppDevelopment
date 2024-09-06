@@ -110,6 +110,7 @@ myName += " Kitty"
 1.  Compound Operator
 1.  Initialize
 1.  Compile
+1. Reassign
 
 
 
