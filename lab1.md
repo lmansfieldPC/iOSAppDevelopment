@@ -12,7 +12,6 @@ Instructions:
 2. Copy and paste the starter code into https://www.programiz.com/swift/online-compiler/ to run in and test your rearrangement of the lines.
 3. When you have finished, copy and paste your code into a file (a Google doc will do), and submit it to the Hub. 
 
-#### Note! Do not delete `import Foundation` in the Swift playground. It is required for the code to run.
 
 ## Coding Challenges
 
