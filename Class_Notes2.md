@@ -97,6 +97,7 @@ myName += " Kitty"
 
 1.  Constant
 1.  Variable
+1.  keyword
 1.  Mutable
 1.  Immutable
 1.  Data type
