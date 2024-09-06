@@ -10,6 +10,7 @@ By the end of this lab, students will understand how to work with constants, var
 
 1. **Initializing a Variable and a Constant:**
    - Create a new playground in Xcode and name it `Lab2_ConstantsVariables`.
+   - If you don't have Xcode yet, use https://swiftplayground.run/. You will save your code into a Google doc for submission.
    - Write code to:
      - Initialize a <b>variable</b> `myAge` with your age.
      - Initialize a <b>constant</b> `birthYear` with your birth year.
