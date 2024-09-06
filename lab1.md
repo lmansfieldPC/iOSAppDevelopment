@@ -4,12 +4,12 @@ In this lab, you will be exposed to your first Swift code and familiarize yourse
 
 I'd recommend you work with a partner if this is your first code experience.
 
-Since you might not have your local environments set-up yet, we will use the online Swift editor https://swiftplayground.run/ to run Swift code. There are a number of free online Swift compilers. You can use any one you'd like.
+Since you might not have your local environments set-up yet, we will use the online Swift editor https://www.programiz.com/swift/online-compiler/ to run Swift code. There are a number of free online Swift compilers. You can use any one you'd like.
 
 Instructions:
 
 1. There are 5 coding challenges below. The first 4 challenges include all the lines needed for a working program, but the lines are out of order. Your task is to rearrange the lines so the program runs correctly. For the last challenge, you'll need to write your own program.
-2. Copy and paste the starter code into https://swiftplayground.run/ to run in and test your rearrangement of the lines.
+2. Copy and paste the starter code into https://www.programiz.com/swift/online-compiler/ to run in and test your rearrangement of the lines.
 3. When you have finished, copy and paste your code into a file (a Google doc will do), and submit it to the Hub. 
 
 #### Note! Do not delete `import Foundation` in the Swift playground. It is required for the code to run.

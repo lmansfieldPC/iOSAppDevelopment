@@ -6,11 +6,13 @@
 By the end of this lab, students will understand how to work with constants, variables, and different data types in Swift. They will practice initializing, modifying, and using these elements in various scenarios.
 
 ### Advice: Work with a partner, ask questions, and refer to the notes! [Class Notes 2](https://github.com/lauramansfield106/iOSAppDevelopment/blob/main/Class_Notes2.md)
+
+### Set-Up
+   - Create a new playground in Xcode and name it `Lab2_ConstantsVariables`.
+   - If you don't have Xcode yet, use https://www.programiz.com/swift/online-compiler/. You will save your code into a Google doc for submission.
 ### Part 1: Constants vs. Variables
 
 1. **Initializing a Variable and a Constant:**
-   - Create a new playground in Xcode and name it `Lab2_ConstantsVariables`.
-   - If you don't have Xcode yet, use https://swiftplayground.run/. You will save your code into a Google doc for submission.
    - Write code to:
      - Initialize a <b>variable</b> `myAge` with your age.
      - Initialize a <b>constant</b> `birthYear` with your birth year.
