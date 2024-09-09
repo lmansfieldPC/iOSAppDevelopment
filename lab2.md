@@ -9,7 +9,7 @@ By the end of this lab, students will understand how to work with constants, var
 
 ### Set-Up
    - Create a new playground in Xcode and name it `Lab2_ConstantsVariables`.
-   - If you don't have Xcode yet, use https://www.programiz.com/swift/online-compiler/. You will save your code into a Google doc for submission.
+   - If you don't have Xcode yet, use https://www.programiz.com/swift/online-compiler/. You can "share" the link to your code with me for submission.
 ### Part 1: Constants vs. Variables
 
 1. **Initializing a Variable and a Constant:**

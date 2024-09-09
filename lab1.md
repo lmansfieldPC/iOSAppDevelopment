@@ -10,7 +10,7 @@ Instructions:
 
 1. There are 5 coding challenges below. The first 4 challenges include all the lines needed for a working program, but the lines are out of order. Your task is to rearrange the lines so the program runs correctly. For the last challenge, you'll need to write your own program.
 2. Copy and paste the starter code into https://www.programiz.com/swift/online-compiler/ to run in and test your rearrangement of the lines.
-3. When you have finished, copy and paste your code into a file (a Google doc will do), and submit it to the Hub. 
+3. When you have finished, you can "share" the link to your code with me for submission.
 
 
 ## Coding Challenges
