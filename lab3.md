@@ -1,7 +1,11 @@
 # Lab 3 
 
+## Advice: Work with a partner, ask questions, and refer to the notes! [Class Notes 2](https://github.com/lmansfieldPC/iOSAppDevelopment/blob/main/Class_Notes2.md)
+
+
 ### Getting Started: 
 Create a new playground in Xcode and name it `Lab2_ArraysAndDictionaries`.
+If you don't have Xcode yet, user 
 
 
 1. **Warm-Up**: Review constants and variables.
