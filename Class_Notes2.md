@@ -8,12 +8,12 @@
 - Variables can only be intialized once. But you can reassign there values multiple times. Ex: `myNum = 20`
 - Constants can only be initialized once and cannot be reassigned. 
 
-## 
+## Advanced Data Types
 
 Swift can also store data in more advanced ways.
 
 ## Arrays
-An **array** is a useful way to store a list of information.
+An **array** is a useful way to store a list.
 
 Here are some examples of arrays:
 ```swift
@@ -64,7 +64,7 @@ moves.remove(at: 1)
 //So moves = ["rock", "scissors"] now.
 ```
 
-## Other important methods and properties:
+## Other important methods and properties for Arrays:
 
 ### Properties
 ```swift
@@ -101,7 +101,20 @@ myGrades["Coding"] = 100.0
 
 We can get the the value for a given key like this:
 ```swift
-myGrades["Math"] //gets the grade for math
+var myMathGrade = myGrades["Math"] //saves the grade for math into a new variable
 ```
 
+## Other properties for Dictionaries:
+
+### Properties
+```swift
+myGrades.keys //lists the keys
+myGrades.values //lists the values
+myGrades.count //gives the number of pairs
+myGrades.isEmpty //tells if the dict is empty
+```
+### Method
+```swift
+removeValue(forKey:):
+```
 

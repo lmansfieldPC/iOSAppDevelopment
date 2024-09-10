@@ -34,7 +34,7 @@ let countryCapitals: [String: String] = [
 ]
 ```
 - Add two more countries and their corresponding capitals to the dictionary.
-- Save the capital of France into a new constant called `franceCapital` and print it. **Hint**: Don't forget to use a default value!
+- Save the capital of France into a new constant called `franceCapital` and print it. 
 - Print all the keys of the dictionary.
 - Print all the values of the dictionary.
 
