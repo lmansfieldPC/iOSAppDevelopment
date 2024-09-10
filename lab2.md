@@ -5,7 +5,7 @@
 
 By the end of this lab, students will understand how to work with constants, variables, and different data types in Swift. They will practice initializing, modifying, and using these elements in various scenarios.
 
-### Advice: Work with a partner, ask questions, and refer to the notes! [Class Notes 2](https://github.com/lauramansfield106/iOSAppDevelopment/blob/main/Class_Notes2.md)
+### Advice: Work with a partner, ask questions, and refer to the notes! [Class Notes #1](https://github.com/lmansfieldPC/iOSAppDevelopment/blob/main/Class_Notes1.md)
 
 ### Set-Up
    - Create a new playground in Xcode and name it `Lab2_ConstantsVariables`.
