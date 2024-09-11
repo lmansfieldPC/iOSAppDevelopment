@@ -9,7 +9,7 @@ If you don't have Xcode yet, user
 
 
 1. **Warm-Up**: Review constants and variables.
-- Create a constant that holds a temperature in Fahrenheit. (Maybe today's current temp.)
+- Create a variable that holds a temperature in Fahrenheit. (Maybe today's current temp.)
 - Convert that temperature to Celsius using the formula:
 
 $$C = \frac{5}{9}(F-32)$$
