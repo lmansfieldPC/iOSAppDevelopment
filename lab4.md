@@ -78,8 +78,8 @@ var randomNumbers = [93, 48, 7, 88, 14, 100, 47, 46, 48, 89, 25, 26]
 
 // YOUR CODE GOES HERE.
 
-// This should print [93, 48, 88, 100, 47, 46, 48]
-// and the count should be 7.
+// This should print [93, 48, 88, 100, 47, 46, 48, 25, 26]
+// and the count should be 9.
 
 
 
