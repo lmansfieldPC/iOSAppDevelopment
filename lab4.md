@@ -15,7 +15,7 @@ import Foundation
 
 
 // Problem 1/////////////////////////////////////////////////
-let array = ["hello", "animal", "chocolate", "egg", "table"]
+var array = ["hello", "animal", "chocolate", "egg", "table"]
 // Sort the array into alphabetical order. Then print the first item of the array.
 
 // YOUR CODE GOES HERE.
