@@ -45,7 +45,7 @@ This code save part of an email address before the @ symbol into `userName`
 let email = "JohnSmith1@penncharter.com"
 var userName = ""
 for char in email {
-    if char != "@"{
+    if char != "@" {
         userName.append(char)
     }
     if char == "@" {
