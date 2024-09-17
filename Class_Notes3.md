@@ -83,6 +83,35 @@ for i in 1...50 {
 print(total) //prints 1275
 ```
 
+### Some More Challenging Problems
+Here we demonstrate a loop that will find the longest word in a list of words.
+```swift 
+let words = ["apple","blueberry", "strawberry", "banana", "cherry", ]
+var currentMaxCount = 0
+var longestWord = ""
+
+for word in words {
+    if currentMaxCount < word.count {
+        currentMaxCount = word.count
+        longestWord = word
+    }
+}
+print("The longest word is \(longestWord) and it is \(currentMaxCount) letters long.")
+
+```
+
+This program will print the first 10 Fibonacci numbers.
+```swift 
+var a: Int
+var b: Int
+var nums: [Int] = [0, 1]
+for i in 0..<8 {
+    a = nums[i]
+    b = nums[i+1]
+    nums.append(a+b)
+}
+print(nums)
+```
 
 
 

@@ -3,6 +3,8 @@
 In this lab you will write for-loops. Review the examples in [Class Notes 3](https://github.com/lmansfieldPC/iOSAppDevelopment/blob/main/Class_Notes3.md).
 
 ```swift 
+import Foundation
+
 //Problem 1/////////////////////////////////////
 var names = ["rowan", "nick", "lily"]
 //Write a for-loop that prints every name in the array names.
@@ -39,7 +41,23 @@ var x = 7
 //Problem 6/////////////////////////////////////
 let numbers = [10, 15, 20, 25, 30, 35, 11, 17, 20, 35, 33, 38]
 var oddTotal = 0
-//Write a for loop that calculators the sum of all the odd numbers in the array numbers and saves it into oddTotal. Print the final value of oddTotal.
+//Write a for-loop that calculators the sum of all the odd numbers in the array numbers and saves it into oddTotal. Print the final value of oddTotal.
 //YOUR CODE HERE
 //This should print: 171
+
+//Problem 7/////////////////////////////////////
+//This one is a bit tricky!
+let values = [10, 15, 20, 12, 8, 13]
+var max = values[0] //default value for values is 10
+//Write a for-loop that finds the maximum value in the array values and stores it into the variable max. If you've done it correctly, max should be 20
+//YOUR CODE HERE
+
+
+//Problem 8 - EXTRA CREDIT IF YOU CAN FIGURE IT OUT ON YOUR OWN! /////////////////////////////////////
+//Here is another fun one!
+//Write a for-loop that prints all the prime numbers between 1 and 30.
+//YOUR CODE HERE
+
+
 ```
+
