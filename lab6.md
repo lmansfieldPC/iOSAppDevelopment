@@ -36,7 +36,7 @@ var count = 0
 var x = 7
 //Write a for-loop that adds x to itself 20 times.
 //YOUR CODE HERE
-//This should print: 140
+//This should print: 7340032
 
 //Problem 6/////////////////////////////////////
 let numbers = [10, 15, 20, 25, 30, 35, 11, 17, 20, 35, 33, 38]
