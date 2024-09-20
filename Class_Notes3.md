@@ -40,20 +40,6 @@ for state in states {
 print(statesWithM) //Prints ["MA", "MO"]
 ```
 
-This code save part of an email address before the @ symbol into `userName`
-``` swift
-let email = "JohnSmith1@penncharter.com"
-var userName = ""
-for char in email {
-    if char != "@" {
-        userName.append(char)
-    }
-    if char == "@" {
-        break
-    }
-}
-print(userName) //prints "JohnSmith1"
-```
 
 ## Looping Using a Range of Numbers
 
