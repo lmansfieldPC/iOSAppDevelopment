@@ -1,6 +1,6 @@
-# Lab 6: For Loops 
+# Lab 6: For-Loops 
 
-In this lab you will write for-loops. Review the examples in [Class Notes 3](https://github.com/lmansfieldPC/iOSAppDevelopment/blob/main/Class_Notes3.md). More examples of notes are also provided in [Class Notes 4] (https://github.com/lmansfieldPC/iOSAppDevelopment/blob/main/Class_Notes4.md)
+In this lab you will write for-loops. Review the examples in [Class Notes 3](https://github.com/lmansfieldPC/iOSAppDevelopment/blob/main/Class_Notes3.md). More examples of notes are also provided in [Class Notes 4](https://github.com/lmansfieldPC/iOSAppDevelopment/blob/main/Class_Notes4.md).
 
 ```swift 
 import Foundation
