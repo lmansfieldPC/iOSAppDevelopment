@@ -21,15 +21,6 @@ There is a lot of detail in this simple function! Let's go through it:
 - The syntax `-> Int` means the function will return an Int. 
 - We must use `a` and `b` when calling the function.
 
-If we don't want to have to type `a`  and `b` every time we call the funciton, we can add underscores to the function definition in the following way: 
-```swift
-//Define the sum function
-func sum2(_ a: Int, _ b: Int) -> Int{
-    return a + b
-}
-//Now we only need the parameter values.
-print( sum2(2,4) )
-```
 
 In the following, we will go through several examples of functions to demonstrate many different kinds of functions.
 
