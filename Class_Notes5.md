@@ -1,6 +1,6 @@
 # Class Notes #5 - Functions
 
-In Mathematics, we learn about functions. An example would be $f(x) = x^2$. We say $x$ is the input and the output of this function is $x^2$. We we plug in an input, say $x=5$, we get an output of $25$. 
+In mathematics, we learn about functions. An example would be $f(x) = x^2$. We say $x$ is the input and the output of this function is $x^2$. We we plug in an input, say $x=5$, we get an output of $25$. 
 
 In coding, functions are very similar. Another word for a function is **method**. We use functions to simplify our code and to perform tasks that might need to performed many times.
 

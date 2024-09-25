@@ -19,7 +19,7 @@ print(sum)
 //Solution
 for i in 1...10{
     print("\(i)*7 = \(i*7)")
-}
+}voe
 
 //Problem 3
 //Write a for-loop that takes an email address and returns the part of the username before the @ symbol.
@@ -62,5 +62,5 @@ for char in word {
     }
 }
 print(numVowels)
-
+///////////////////////////////////////////
 ```
