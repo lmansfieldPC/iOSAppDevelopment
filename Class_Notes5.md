@@ -1,4 +1,4 @@
-# Class Notes #5 - Functions
+    # Class Notes #5 - Functions
 
 In mathematics, we learn about functions. An example would be $f(x) = x^2$. We say $x$ is the input and the output of this function is $x^2$. We we plug in an input, say $x=5$, we get an output of $25$. 
 
