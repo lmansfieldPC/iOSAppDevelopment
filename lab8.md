@@ -1,4 +1,4 @@
-# Lab 9: Functions
+# Lab 8: Functions
 
 In this lab you will write functions. Remember to review the notes in [Class Notes 5]( ).
 
