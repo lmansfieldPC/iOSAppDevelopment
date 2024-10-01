@@ -125,8 +125,8 @@ func intTestRPS(actual: Int, expected: Int) {
 
 
 // Call test functions
-computationTest(actual: subtract(a: 5, b: 3, c: 2), expected: 4.0)  // (5 + 3) / 2 = 4
-computationTest(actual: subtract(a: 10, b: 5, c: 0), expected: Double.infinity)  // Division by 0
+computationTest(actual: computation(a: 5, b: 3, c: 2), expected: 4.0)  // (5 + 3) / 2 = 4
+computationTest(actual: computation(a: 10, b: 5, c: 0), expected: Double.infinity)  // Division by 0
 
 boolTest(actual: isEven(number: 4), expected: true)  // 4 is even
 boolTest(actual: isEven(number: 7), expected: false)  // 7 is odd
