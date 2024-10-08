@@ -4,12 +4,12 @@
 Create a simple food ordering app using SwiftUI that allows users to add different food items to their order and see the total cost.
 
 ## Description
-In this lab, you will create an app that displays three different food options. The user can tap on buttons to add foods to their order. The app will display to total cost of the food items.
+In this lab, you will create an app that displays three different food options. The user can tap on buttons to add foods to their order. The app will display the total cost of the food items.
 
 ## Process
 1. Create a new iOS project in Xcode.
 
-2. Follow the example code in Class Notes 6. You will have to create three buttons representing three different foods.
+2. Follow the example code in [Class Notes 6](https://github.com/lmansfieldPC/iOSAppDevelopment/blob/main/Class_Notes6_YourFirstApp.md). You will have to create three buttons representing three different foods.
 
 3. When the user clicks a food button, the cost of that food is added to their total cost. 
 
@@ -26,10 +26,9 @@ struct ContentView: View {
     @State private var pizzaCount = 0
     @State private var burgerCount = 0
     @State private var saladCount = 0
-    @State private var totalCost = 0.0
     
     let pizzaPrice = 10.0
-    let burgerPrice = 8.0
+    let burgerPrice = 8.5
     let saladPrice = 6.0
     
     var body: some View {
@@ -39,9 +38,11 @@ struct ContentView: View {
             
             // TODO: Add food item buttons here
             
-            // TODO: Add order summary here
+            // TODO: Display the total cost.
         }
     }
+
+    //TODO: Add a function to calculate the total cost.
     
 }
 ```

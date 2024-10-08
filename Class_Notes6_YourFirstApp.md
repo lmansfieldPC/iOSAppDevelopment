@@ -113,7 +113,7 @@ Button(action: {
     Image(systemName: "dog")
 })
 ``` 
-
+## Example Animal Counter App
 The following code, which will be discussed in class, creates three buttons that are counters, counting and display the number of times each button was pressed. Study the code until you understand how it is operating. 
 ```swift
 struct ContentView: View {
@@ -135,12 +135,59 @@ struct ContentView: View {
                     numDogs += 1
                 }, label: {
                     Image(systemName: "dog")
+                })
+                Button(action: {
+                    numCats += 1
+                }, label: {
+                    Image(systemName: "cat")
+                })
+                Button(action: {
+                    numBirds += 1
+                }, label: {
+                    Image(systemName: "bird")
+                })
+            }
+            //Counters
+            HStack{
+                Text("Dogs: \(numDogs)")
+                    .padding()
+                Text("Cats: \(numCats)")
+                    .padding()
+                Text("Birds: \(numBirds)")
+                    .padding()
+            }
+        }
+    }
+}
+```
+
+Lastly, we refine our example by defining functions to increment each counter, and calling the function in the action of each button. We also add some formatting to improve the look.
+```swift 
+struct ContentView: View {
+    // We initialize variables before the body
+    // We must use the @State annotation to tell Swift that we want to monitor the "state" of these variables.
+    // If there state changes (ie. the values changes), the UI must be changed.
+    @State var numDogs: Int = 0
+    @State var numCats: Int = 0
+    @State var numBirds: Int = 0
+    
+    var body: some View {
+        VStack{
+            //Title
+            Text("Animals")
+                .font(.title)
+            //Buttons
+            HStack{
+                Button(action: {
+                    incrementDog()
+                }, label: {
+                    Image(systemName: "dog")
                         .resizable()// Make the image resizable
                         .frame(width: 50, height: 50) // Set a larger size
                         .padding()
                 })
                 Button(action: {
-                    numCats += 1
+                    incrementCat()
                 }, label: {
                     Image(systemName: "cat")
                         .resizable()// Make the image resizable
@@ -148,7 +195,7 @@ struct ContentView: View {
                         .padding()
                 })
                 Button(action: {
-                    numBirds += 1
+                    incrementBird()
                 }, label: {
                     Image(systemName: "bird")
                         .resizable()// Make the image resizable
@@ -166,6 +213,16 @@ struct ContentView: View {
                     .padding()
             }
         }
+    }
+    
+    func incrementDog(){
+        numDogs += 1
+    }
+    func incrementCat(){
+        numCats += 1
+    }
+    func incrementBird(){
+        numBirds += 1
     }
 }
 ```
