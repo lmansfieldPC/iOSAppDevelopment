@@ -119,7 +119,7 @@ The following code, which will be discussed in class, creates three buttons that
 struct ContentView: View {
     // We initialize variables before the body
     // We must use the @State annotation to tell Swift that we want to monitor the "state" of these variables. 
-    // If there state changes (ie. the values changes), the UI must be changed. 
+    // If there state changes (ie. the value changes), the UI must be changed. 
     @State var numDogs: Int = 0
     @State var numCats: Int = 0
     @State var numBirds: Int = 0
