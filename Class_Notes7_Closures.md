@@ -1,4 +1,4 @@
-# Class Notes #6 - Closures
+# Class Notes #7 - Closures
 
 ## What is a closure?
 In Swift, a **closure** is a special type of function that has no name. Closures are often used in place of functions. 
