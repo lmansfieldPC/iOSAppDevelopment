@@ -1,7 +1,7 @@
 # App 2: Tip Calculator
 
 ## Objective
-Amend the provided Tip Calulator code to allow the user to:
+Amend the provided Tip Calculator code to allow the user to:
 *  display the total cost of the bill after the tip is applied
 * select the number of people to split the bill between, from 1 to 4 people
 
