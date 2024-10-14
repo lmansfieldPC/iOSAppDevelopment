@@ -35,7 +35,7 @@ Text("Go Penn Charter!")
 ```
 
 ## Font Size
-The `.font()` modifier gives several option for font size styles like `.title, .title2, .title3, .headline,` and  `.caption` to name a few.
+The `.font()` modifier gives several option for font size styles like `.title, .title2, .title3, .headline,` and  `.caption` to name a few. If we want to add a custom size, we use `.system(size:100)' and change 100 to the desired size.
 
 
 ## Tap Gesture
@@ -83,4 +83,13 @@ var body: some View {
             isFavorited.toggle()//when tapped switch isFavorited from true to false or vice versa
         })
 }
+```
+This is many fewer lines of code and we no longer need to define a function! Using this method, we can add many other modifiers when the heart is tapped. In this code, we also change the size and color when the heart is tapped.
+```swift
+Image(systemName: isFavorited == true ? "heart.fill" : "heart")
+    .foregroundColor(isFavorited == true ? Color.red : Color.blue)
+    .font(isFavorited == true ? .title : .title2)
+    .onTapGesture(perform: {
+        isFavorited.toggle()
+    })
 ```
