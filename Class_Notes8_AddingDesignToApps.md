@@ -1,6 +1,6 @@
 # Class Notes 8 - Adding Design! 
 
-In this lesson, we will talk about ZStacks, adding background colors and gradients, customizing text and buttons, and adding ???
+In this lesson, we will talk about ZStacks, adding background colors and gradients, and customizing text and buttons. We also talk about the ternary operator.
 
 ## ZStacks and Linear Gradients
 We have learned about VStacks and HStacks. A `ZStack` will stack items on top of each other so you can layer, for example, a backgound with an image or text on top. The following example will layer a gradient background under some text.
