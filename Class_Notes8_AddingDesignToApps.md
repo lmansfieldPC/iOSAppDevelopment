@@ -2,6 +2,7 @@
 
 In this lesson, we will talk about ZStacks, adding background colors and gradients, and customizing text and buttons. We also talk about the ternary operator.
 
+# Part I 
 ## ZStacks and Linear Gradients
 We have learned about VStacks and HStacks. A `ZStack` will stack items on top of each other so you can layer, for example, a backgound with an image or text on top. The following example will layer a gradient background under some text.
 ```swift
@@ -37,6 +38,7 @@ Text("Go Penn Charter!")
 ## Font Size
 The `.font()` modifier gives several option for font size styles like `.title, .title2, .title3, .headline,` and  `.caption` to name a few. If we want to add a custom size, we use `.system(size:100)' and change 100 to the desired size.
 
+# systemPart II
 
 ## Tap Gesture
 Here, we have a very simple program that used the `.tapGesture()` modifier to changed a heart icon from filled to unfilled when the user taps the icon.
