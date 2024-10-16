@@ -15,7 +15,7 @@ The modifier `.ignoreSafeArea()` will ensure the gradient background fills the e
 You can add as many colors as you want to a gradient. Try experimenting with different colors!
 
 ## Modifiers
-We have been using `modifiers` but not really explicitly talking about them yet. We can **modify** an element in SwiftUI by adding them to the end of the curly bracket that defines the element. Here some examples of basic modifiers we have used before:
+We have been using `modifiers` but not really explicitly talking about them yet. We can **modify** an element in SwiftUI by adding them to the end of the curly bracket or parantheses that defines the element. Here some examples of basic modifiers we have used before:
 ```swift
 Text("Hello")
     .padding() // Adds space around text
