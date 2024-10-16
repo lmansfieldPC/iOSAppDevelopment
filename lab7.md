@@ -1,6 +1,6 @@
 # Lab 7: More For-Loops 
 
-In this lab you will write more for-loops. Remember to review the notes in [Class Notes 3](https://github.com/lmansfieldPC/iOSAppDevelopment/blob/main/Class_Notes3.md) and [Class Notes 4](https://github.com/lmansfieldPC/iOSAppDevelopment/blob/main/Class_Notes4.md).
+In this lab you will write more for-loops. Remember to review the notes in [Class Notes 3](https://github.com/lmansfieldPC/iOSAppDevelopment/blob/main/Class_Notes3_Loops.md) and [Class Notes 4](https://github.com/lmansfieldPC/iOSAppDevelopment/blob/main/Class_Notes4_Loops.md).
 
 Copy and paste the entire code below into a playground.
 

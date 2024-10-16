@@ -1,6 +1,6 @@
 # Lab 8: Functions
 
-In this lab you will write functions. Remember to review the notes in [Class Notes 5](https://github.com/lmansfieldPC/iOSAppDevelopment/blob/main/Class_Notes5.md).
+In this lab you will write functions. Remember to review the notes in [Class Notes 5](https://github.com/lmansfieldPC/iOSAppDevelopment/blob/main/Class_Notes5_Functions.md).
 
 These labs will now automatically test where or not your code works correctly. So you will no longer have to use print statements to check your work. Print statements can still help you, so feel free to use them as much as you want. But when you run the code, you will receive "Tests passed" messages when you pass the automatic tests.
 

@@ -1,6 +1,6 @@
 # Lab 9: Functions Part II
 
-In this lab you will write functions. Remember to review the notes in [Class Notes 5](https://github.com/lmansfieldPC/iOSAppDevelopment/blob/main/Class_Notes5.md).
+In this lab you will write functions. Remember to review the notes in [Class Notes 5](https://github.com/lmansfieldPC/iOSAppDevelopment/blob/main/Class_Notes5_Functions.md).
 
 Make sure to run the tests to check your functions are working correctly.
 
