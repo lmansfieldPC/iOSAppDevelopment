@@ -10,7 +10,7 @@ ZStack{
     Text("Hello World")
 }.ignoresSafeArea()
 ``` 
-The modifier `.ignoreSageArea()` will ensure the gradient background fills the entire screen. 
+The modifier `.ignoreSafeArea()` will ensure the gradient background fills the entire screen. 
 
 You can add as many colors as you want to a gradient. Try experimenting with different colors!
 
