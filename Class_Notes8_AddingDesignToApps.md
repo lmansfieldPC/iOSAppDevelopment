@@ -95,3 +95,11 @@ Image(systemName: isFavorited == true ? "heart.fill" : "heart")
         isFavorited.toggle()
     })
 ```
+
+Another option, is to create a button. Here is an alternative to the code above.
+```swift
+Button(action: {
+    isFavorited.toggle()
+}, label: {Image(systemName: isFavorited ? "heart" : "heart.fill")}
+)
+```
