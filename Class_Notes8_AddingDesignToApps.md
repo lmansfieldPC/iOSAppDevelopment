@@ -38,7 +38,7 @@ Text("Go Penn Charter!")
 ## Font Size
 The `.font()` modifier gives several option for font size styles like `.title, .title2, .title3, .headline,` and  `.caption` to name a few. If we want to add a custom size, we use `.system(size:100)' and change 100 to the desired size.
 
-# systemPart II
+# Part II
 
 ## Tap Gesture
 Here, we have a very simple program that used the `.tapGesture()` modifier to changed a heart icon from filled to unfilled when the user taps the icon.
