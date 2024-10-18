@@ -3,6 +3,7 @@
 ## Objective
 In this lab, you will build a very simple iOS application that includes three different features. Make your own project. There is no starter code for this lab.
 
+Use [Class Notes 8](https://github.com/lmansfieldPC/iOSAppDevelopment/blob/main/Class_Notes8_AddingDesignToApps.md) for reference.
 
 ## Feature 1 
 Create a text element that says "Tap to change color!". Add a frame, clipShape, and background color. Use the .onTapGesture modifier so that the button change colors when the user taps the element.
