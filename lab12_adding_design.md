@@ -3,7 +3,7 @@
 ## Objective
 In this lab, you will be given a working application to edit. Your goal is to add styling to the application. The specifics of how you are to add styling to the app are detailed below. 
 
-Use [Class Notes 8](https://github.com/lmansfieldPC/iOSAppDevelopment/blob/main/Class_Notes8_AddingDesignToApps.md) for reference.
+Use [Class Notes 8 - Part I](https://github.com/lmansfieldPC/iOSAppDevelopment/blob/main/Class_Notes8_AddingDesignToApps.md) for reference.
 ## Listed Elements to Style
 Below, you will be given starter code for the app you are being asked to style. 
 

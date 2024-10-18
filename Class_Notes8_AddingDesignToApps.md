@@ -41,7 +41,7 @@ The `.font()` modifier gives several option for font size styles like `.title, .
 # Part II
 
 ## Tap Gesture
-Here, we have a very simple program that used the `.tapGesture()` modifier to changed a heart icon from filled to unfilled when the user taps the icon.
+Here, we have a very simple program that used the `.onTapGesture()` modifier to changed a heart icon from filled to unfilled when the user taps the icon.
 ```swift
 @State var heartFormat: String = "heart"
 
@@ -61,8 +61,35 @@ func toggleHeart(){
     }
 }
 ```
+
+We can also add some code to change the color of the heart:
+```swift
+@State var heartFormat: String = "heart"
+@State var colorToggle: Bool = false
+@State var color1 = Color.blue
+
+
+var body: some View {
+    Image(systemName: heartFormat)
+        .font(.system(size: 80))
+        .foregroundColor(color1)
+        .onTapGesture(perform: {
+            toggleHeart()
+            if colorToggle == true {
+                color1 = Color.red
+            }
+            else{
+                color1 = Color.blue
+            }
+            colorToggle.toggle()
+        })
+}
+```
+
 This seems like a lot of code for a very simple feature. We can make it more efficient by using a common logical structure called a `ternary conditional operator `. 
 
+
+# Part III
 ## Ternary Conditional Operator
 While the name sounds complex, this is a simple tool to use. The syntax is as follows:
 ```swift
@@ -96,10 +123,4 @@ Image(systemName: isFavorited == true ? "heart.fill" : "heart")
     })
 ```
 
-Another option, is to create a button. Here is an alternative to the code above.
-```swift
-Button(action: {
-    isFavorited.toggle()
-}, label: {Image(systemName: isFavorited ? "heart" : "heart.fill")}
-)
-```
+

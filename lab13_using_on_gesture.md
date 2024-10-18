@@ -3,7 +3,7 @@
 ## Objective
 In this lab, you will build a very simple iOS application that includes 4 different features. Make your own project. There is no starter code for this lab.
 
-Use [Class Notes 8](https://github.com/lmansfieldPC/iOSAppDevelopment/blob/main/Class_Notes8_AddingDesignToApps.md) for reference.
+Use [Class Notes 8 - Part II](https://github.com/lmansfieldPC/iOSAppDevelopment/blob/main/Class_Notes8_AddingDesignToApps.md) for reference.
 
 
 Here is a short [video](https://drive.google.com/file/d/1TcUzXTJ53Dl9u0Kbp2993csV5emrTJp2/view?usp=sharing) that demonstrates how you application should work. You will need to spend some time thinking about how to lay out the features. You will also need to determine if you need to add @State variables.
