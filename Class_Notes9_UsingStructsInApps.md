@@ -1,6 +1,6 @@
 # Class Notes 9 - Using Structs in Apps
 
-We will create a simply app where a user can add a Dog object to the screen. The user can give the dog a name and a color.
+We will create a simple app where a user can add a Dog object to the screen. The user can give the dog a name and a color.
 
 First, let's build our struct:
 
