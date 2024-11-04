@@ -1,4 +1,4 @@
-# SwiftUI Basics: Food Ordering App Assignment
+# Lab 10 SwiftUI Basics: Food Ordering App Assignment
 
 ## Objective
 Create a simple food ordering app using SwiftUI that allows users to add different food items to their order and see the total cost.

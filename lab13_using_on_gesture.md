@@ -1,4 +1,4 @@
-# Lab 12: Using .onTapGesture() and Button
+# Lab 13: Using .onTapGesture() and Button
 
 ## Objective
 In this lab, you will build a very simple iOS application that includes 4 different features. Make your own project. There is no starter code for this lab.

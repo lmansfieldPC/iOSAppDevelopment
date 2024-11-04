@@ -1,4 +1,4 @@
-# App 2: Tip Calculator
+# Lab 11 App 2: Tip Calculator
 
 ## Objective
 Amend the provided Tip Calculator code to allow the user to:
