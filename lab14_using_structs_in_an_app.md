@@ -13,4 +13,4 @@ Create an application call Pet Collector where a user can add different types of
 
 You can choose to use the application providing in Class Notes 9 as the starter code OR It would be good practice to start your app from scratch. 
 
-Your app must be aesthetically pleasing, easy to user, and use Structs for each animal type.
+Your app must be aesthetically pleasing, easy to use, and use Structs for each animal type.
