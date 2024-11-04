@@ -72,3 +72,155 @@ VStack{//Put form into its own stack
 }
 ```
 
+### Step 3 - Add formatting to each Dog object.
+- We make each `Image` and dog name larger.
+- We style each VStack including a dog have a frame, that is a rounded rectangle with a thin background.
+- We also add spacing to the VStack.
+```swift
+VStack(spacing: 12){
+    Image(systemName: "dog.fill")
+        .foregroundColor(dog.color)
+        .font(.system(size: 80))
+    Text(dog.name)
+        .font(.headline)
+}
+.frame(width: 120, height: 120)
+.padding()
+.background(.thinMaterial)
+.clipShape(RoundedRectangle(cornerRadius: 15))
+```
+
+### Step 4 - Add formatting the form.
+Here we adding multiple design elements to the form to make it look like a card and to be aesthetically pleasing.
+```swift
+VStack{
+    TextField("Enter a name.", text: $newDogName)
+        .padding(10)
+    ColorPicker(selection: $newDogColor) {
+        Text("Select a color")
+    } .padding(10)
+
+    Button(action: {
+        let newDog = Dog(name: newDogName, color: newDogColor)
+        dogsArray.append(newDog)
+    }, label: {
+        Text("Submit")
+    })
+    .frame(width:200, height: 50)
+    .background(.blue)
+    .foregroundColor(.white)
+    .clipShape(RoundedRectangle(cornerRadius: 15))
+    .padding()
+}
+.background(.white)
+.clipShape(RoundedRectangle(cornerRadius: 15))
+.shadow(radius: 5)
+.padding()
+```
+
+### Step 5 - Finishing up with a background and some additional elements.
+In the following code, we clean up our design by adding a few title and a linear gradient. The code below shows the full code for the app. You should examine it to see how the design effects were acheived.
+```swift
+//
+//  ContentView.swift
+//  demoproject
+//
+//  Created by Laura.Mansfield on 10/30/24.
+//
+
+import SwiftUI
+
+struct Dog: Identifiable {
+    var name: String
+    var color: Color
+    var id = UUID()
+
+    init(name: String, color: Color){
+        self.name = name
+        self.color = color
+    }
+}
+
+
+
+struct ContentView: View {
+    @State var dogsArray: [Dog] = [Dog(name: "fido", color: .black), Dog(name: "ruff", color: .red), Dog(name: "lassie", color: .green)]
+    @State var newName = ""
+    @State var newColor  = Color.black
+    
+    var body: some View {
+        ZStack{
+            LinearGradient(colors: [Color.blue, Color.white], startPoint: .top, endPoint: .bottom).ignoresSafeArea()
+            
+            VStack(spacing: 30) { // Added spacing between main elements
+                // Form styled as a card
+                VStack(spacing: 20) {
+                    Text("Add New Dog")
+                        .font(.title2)
+                        .fontWeight(.bold)
+                        .padding(10)
+                    
+                    TextField("Enter a name", text: $newName).padding(.horizontal)
+
+                    ColorPicker(selection: $newColor) {
+                        Text("Select a color")
+                    }
+                    .padding(.horizontal)
+                    
+                    Button(action: {
+                        let newDog = Dog(name: newName, color: newColor)
+                        dogsArray.append(newDog)
+                        newName = "" // Clear the text field after submission
+                    }) {
+                        Text("Add Dog")
+                            .foregroundColor(.white)
+                            .frame(width: 200, height: 44)
+                            .background(Color.blue)
+                            .cornerRadius(10)
+                    }.padding()
+                }
+                .background(.white)
+                .clipShape(  RoundedRectangle(cornerRadius: 15))
+                .shadow(radius: 5)
+                .padding()
+   
+                // Dogs ScrollView
+                VStack(alignment: .leading) {
+                    Text("Your Dogs")
+                        .font(.title2)
+                        .fontWeight(.bold)
+                        .padding(.horizontal)
+                    
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack(spacing: 20) {
+                            ForEach(dogsArray) { dog in
+                                VStack(spacing: 12) {
+                                    Image(systemName: "dog.fill")
+                                        .foregroundColor(dog.color)
+                                        .font(.system(size: 60))
+                                    Text(dog.name)
+                                        .font(.headline)
+                                }
+                                .frame(width: 120, height: 120)
+                                .padding()
+                                .background(.thinMaterial)
+                                .clipShape(
+                                    RoundedRectangle(cornerRadius: 15)
+                                )
+                            }
+                        }
+                        .padding()
+                    }
+                }
+                Spacer()
+            }
+        }
+    }
+}
+
+#Preview {
+    ContentView()
+}
+
+
+```
