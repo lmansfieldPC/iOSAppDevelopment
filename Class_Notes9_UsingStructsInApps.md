@@ -21,7 +21,15 @@ We need to make the struct `Identifiable` so that each Dog object has a unique I
 ## Big Idea 
 For our `ContentView`, we will add a form where users can enter the name and color of a new dog. And we will add a `ScrollView` that displays all the dogs the user has created.
 
-### Step 1 - Add the ScrollView and Use the ForEach function.
+### Step 1 - Initialize the @State variables.
+We will create an array for the dogs, and name and color variables for each new dog the user adds. We initialize these variables for now.
+```swift
+@State var dogsArray: [Dog] = [Dog(name: "Fido", color: Color.brown), Dog(name: "Sport", color: Color.red)]
+@State var newDogName = ""
+@State var newDogColor = Color.black
+```
+
+### Step 2 - Add the ScrollView and Use the ForEach function.
 First we will add the ScrollView with a hardcoded array of Dog objects. In order to show each dog in the list we will use the `ForEach` function. The general structure of this function is:
 
 ```swift
@@ -46,7 +54,7 @@ ScrollView(.horizontal){
 ```
 So far, this doesn't look great but we are just getting started!
 
-### Step 2 - Add the form
+### Step 3 - Add the form
 Now we will add the form so the user can add new dogs. We will need to add new `@State` variables as placeholders for the information the user enters. 
 ```swift
 @State var newName = ""
@@ -72,7 +80,7 @@ VStack{//Put form into its own stack
 }
 ```
 
-### Step 3 - Add formatting to each Dog object.
+### Step 4 - Add formatting to each Dog object.
 - We make each `Image` and dog name larger.
 - We style each VStack including a dog have a frame, that is a rounded rectangle with a thin background.
 - We also add spacing to the VStack.
@@ -90,7 +98,7 @@ VStack(spacing: 12){
 .clipShape(RoundedRectangle(cornerRadius: 15))
 ```
 
-### Step 4 - Add formatting the form.
+### Step 5 - Add formatting the form.
 Here we adding multiple design elements to the form to make it look like a card and to be aesthetically pleasing.
 ```swift
 VStack{
@@ -118,7 +126,7 @@ VStack{
 .padding()
 ```
 
-### Step 5 - Finishing up with a background and some additional elements.
+### Step 6 - Finishing up with a background and some additional elements.
 In the following code, we clean up our design by adding a few title and a linear gradient. The code below shows the full code for the app. You should examine it to see how the design effects were acheived.
 ```swift
 //
