@@ -1,6 +1,6 @@
 # Lab 15 - Using Multiple Views in a Biography App
 
-Use [Class Notes 10](???) for reference.
+Use [Class Notes 10](https://github.com/lmansfieldPC/iOSAppDevelopment/blob/main/Class_Notes10_UsingMultipleViewsBioApp.md) for reference.
 
 ## Objective 
 Create an application that is a biography or informational application that includes multiple views. The biography app can be about yourself or it can be about a different person or topic. Please chose an appropriate topic.
