@@ -11,7 +11,7 @@
 
 
 ## Full Example Application
-Below is a full example application. Note, the application will not work without the images and custom colors. You can download them [here](). Otherwise, you can just look at this code as a guide.
+Below is a full example application. Note, the application will not work without the images and custom colors. If you want, you can download them [here](https://drive.google.com/drive/folders/1rYx7aMDurM1Znzji62TmOjwjFrEFfGdV?usp=sharing). Otherwise, you can just look at this code as a guide.
 ```swift
 import SwiftUI
 
