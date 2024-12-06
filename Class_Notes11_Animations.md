@@ -1,5 +1,5 @@
 # Class Notes 11 - Animations
-
+ 
 SwiftUI has a number of build in animation modifiers that can elevate the design of our applications.
 
 ## Part 1: Add an Animation with a Button
@@ -97,4 +97,63 @@ Circle()
     }
     .animation(.easeInOut(duration: 2.0)
         .repeatForever(autoreverses: true), value: ypos)
+```
+
+
+## Part 5: Rotations 
+
+The following code will rotate a heart image 90 degrees every time the user taps the heart.
+First, an `@State` variable:
+```swift
+@State var rotationAmount = 0.0
+```
+And now the image:
+```swift
+Image(systemName: "heart.fill")
+    .resizable()
+    .frame(width: 120, height:100)
+    .rotationEffect(.degrees(rotationAmount))
+    .onTapGesture {
+        rotationAmount += 90
+    }
+    .animation(.bouncy, value: rotationAmount)
+```
+
+Another fun rotation uses a 3D effect. You might try it out:
+```swift
+.rotation3DEffect(
+    .degrees(degrees),axis:(x: 0.0, y: 1.0, z: 0.0)
+)
+```
+
+
+## Part 6: Using Offset vs using Position
+
+An `offset` moves an object relative to where it's placed.
+The `position` moves the absolute position of the object, along with the other object in it's stack.
+
+Here, we will draw two circles in a `VStack`. We will use an `offset` to move the bottom cirlce on top of the top circle. Using `offset` rather than `position` will ensure only the bottom circle moves.
+
+Again, we need an @State variable
+```swift
+@State var yPos = 0.0
+```
+
+And now the circles:
+```swift
+VStack {
+    Image(systemName: "circle.fill")
+        .resizable()
+        .frame(width: 100, height:100)
+    
+    Image(systemName: "circle.fill")
+        .resizable()
+        .frame(width: 100, height:100)
+        .foregroundColor(.blue)
+        .offset(y: yPos)
+        .onTapGesture {
+            yPos = -108
+        }
+        .animation(.spring, value: yPos)
+}
 ```
