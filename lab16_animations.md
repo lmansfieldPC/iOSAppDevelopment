@@ -2,7 +2,7 @@
 
 In this lab, you will be given no starter code. You must create a project acheives the following benchmarks below. 
 
-Check out the [Class Notes 11](https://github.com/lmansfieldPC/iOSAppDevelopment/blob/main/Class_Notes_11_Animations.md).
+Check out the [Class Notes 11](https://github.com/lmansfieldPC/iOSAppDevelopment/blob/main/Class_Notes11_Animations.md).
 
 ## Problem 1
 Make a button that is the shape of a Rounded Rectangle with a background color that get's increasingly blurry when the user taps the button.

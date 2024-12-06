@@ -1,6 +1,6 @@
 # Lab 17 - Animations #2
 
-Check out the [Class Notes 11](https://github.com/lmansfieldPC/iOSAppDevelopment/blob/main/Class_Notes_11_Animations.md), especially Parts 5 and 6.
+Check out the [Class Notes 11](https://github.com/lmansfieldPC/iOSAppDevelopment/blob/main/Class_Notes11_Animations.md), especially Parts 5 and 6.
 
 In this lab, you will be given no starter code. You will be shown a working app in class, that involves animating three different shapes. You must try to recreate the app based on what you observe in class. 
 
