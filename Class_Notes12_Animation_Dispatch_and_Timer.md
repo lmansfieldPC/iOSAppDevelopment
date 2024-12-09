@@ -47,3 +47,33 @@ Image(systemName: "star")
     })
     .animation(.easeInOut, value: degreeAmount)
 ```
+You can play around with the timer amount and the animation type to see how it effects the rotations.
+
+If we also add an `offset`, we can make the star rotate around a different center, rather than it's center. For example `.offset(x:50)` can be used.
+
+
+## Part 3: Infinitely Change Colors
+We can add multiple timers to control different animations at the same time. In the following code, we will add an array of colors and set a variable for the color name and the index of the array.
+```swift
+let timer2 = Timer.publish(every: 1.0, on: .main, in: .common).autoconnect()
+@State var colorName = Color.blue
+let colors = [Color.blue, Color.purple, Color.red]
+@State var colorIndex = 0
+```
+Now, we add a `.onReceive` modifier that increments the array index and resets the `colorName`. The timer will trigger this change every 1.0 seconds. Finally, we amend our previous code so that star rotates and changes color.
+```swift
+Image(systemName: "star")
+    .resizable()
+    .frame(width: 100, height: 100)
+    .offset(x:50)
+    .foregroundColor(colorName)
+    .rotationEffect(.degrees(degreeAmount))
+    .onReceive(timer, perform: { _ in
+        degreeAmount += 1
+    })
+    .onReceive(timer2, perform: { _ in
+        colorIndex = (colorIndex + 1) % 3
+        colorName = colors[colorIndex]
+    })
+    .animation(.default, value: degreeAmount)
+```
