@@ -1,0 +1,1062 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pizza Shop Lab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --page:#F4F6F3;
+  --panel:#FFFFFF;
+  --ink:#15181C;
+  --muted:#5C6470;
+  --line:#D8DEDA;
+  --slab:#10151B;
+  --slabline:#232B33;
+  --accent:#C62B33;
+  --pass:#2C6E4A;
+  --passbg:#E4F1E8;
+  --passline:#A8D4BC;
+  --fail:#B3262E;
+  --failbg:#FBE9EA;
+  --failline:#EEBFC2;
+  --idle:#C3CAC5;
+
+  --c-kw:#FF8A80;
+  --c-str:#9FE68A;
+  --c-num:#A9C4FF;
+  --c-type:#7FD6E8;
+  --c-com:#6E7A8A;
+}
+:root:not([data-theme="light"]){
+  @media (prefers-color-scheme: dark){
+    --page:#0E1113;
+    --panel:#171B1F;
+    --ink:#E8EBEC;
+    --muted:#99A1AA;
+    --line:#2A3036;
+    --slab:#080B0E;
+    --slabline:#232B33;
+    --accent:#F0767D;
+    --pass:#5DBE8A;
+    --passbg:#16281F;
+    --passline:#2A4F3A;
+    --fail:#FF8F96;
+    --failbg:#2A1619;
+    --failline:#5A2A2F;
+    --idle:#39414A;
+  }
+}
+:root[data-theme="dark"]{
+  --page:#0E1113;
+  --panel:#171B1F;
+  --ink:#E8EBEC;
+  --muted:#99A1AA;
+  --line:#2A3036;
+  --slab:#080B0E;
+  --slabline:#232B33;
+  --accent:#F0767D;
+  --pass:#5DBE8A;
+  --passbg:#16281F;
+  --passline:#2A4F3A;
+  --fail:#FF8F96;
+  --failbg:#2A1619;
+  --failline:#5A2A2F;
+  --idle:#39414A;
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--page);
+  color:var(--ink);
+  font-family:Archivo,system-ui,-apple-system,sans-serif;
+  font-size:16px;line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+code,pre,textarea,input[type=text]{font-family:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace}
+
+/* ---------- top bar ---------- */
+.bar{
+  position:sticky;top:0;z-index:40;
+  background:color-mix(in srgb, var(--page) 88%, transparent);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+  padding-top:env(safe-area-inset-top,0px);
+}
+.bar-in{
+  max-width:1060px;margin:0 auto;padding:10px 16px;
+  display:flex;align-items:center;gap:14px;
+}
+.bar-name{font-weight:800;font-size:15px;letter-spacing:-.01em;white-space:nowrap}
+.bar-name em{font-style:normal;color:var(--accent)}
+.track{flex:1;height:7px;background:var(--idle);border-radius:4px;overflow:hidden;min-width:60px}
+.track i{display:block;height:100%;width:0;background:var(--pass);border-radius:4px}
+@media (prefers-reduced-motion: no-preference){.track i{transition:width .25s ease}}
+.bar-num{font-family:"IBM Plex Mono",monospace;font-size:13px;font-weight:600;white-space:nowrap;font-variant-numeric:tabular-nums}
+
+.wrap{max-width:1060px;margin:0 auto;padding:0 16px 80px}
+
+/* ---------- hero ---------- */
+.hero{padding:40px 0 8px;max-width:62ch}
+.kicker{
+  margin:0 0 10px;font-size:13px;font-weight:600;color:var(--accent);
+  font-family:"IBM Plex Mono",monospace;
+}
+h1{
+  margin:0 0 14px;font-size:clamp(34px,6vw,54px);font-weight:800;
+  letter-spacing:-.035em;line-height:1.02;
+}
+.lede{margin:0 0 22px;font-size:17px;color:var(--muted);line-height:1.6}
+.lede b{color:var(--ink);font-weight:600}
+
+.flow{
+  list-style:none;margin:0 0 8px;padding:0;
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;
+  counter-reset:f;
+}
+.flow li{
+  background:var(--panel);border:1px solid var(--line);border-radius:10px;
+  padding:12px 13px;font-size:14px;line-height:1.4;counter-increment:f;
+}
+.flow li::before{
+  content:counter(f);
+  display:block;font-family:"IBM Plex Mono",monospace;font-size:12px;
+  font-weight:600;color:var(--accent);margin-bottom:5px;
+}
+@media (max-width:720px){.flow{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* ---------- sections ---------- */
+section{margin-top:52px;scroll-margin-top:70px}
+.shead{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:6px}
+h2{
+  margin:0;font-size:clamp(22px,3.2vw,30px);font-weight:700;letter-spacing:-.025em;
+}
+.step-no{
+  font-family:"IBM Plex Mono",monospace;font-size:13px;font-weight:600;
+  color:var(--accent);
+}
+.sub{margin:0 0 20px;font-size:16px;color:var(--muted);max-width:66ch}
+.sub b{color:var(--ink);font-weight:600}
+.count{
+  font-family:"IBM Plex Mono",monospace;font-size:13px;font-weight:600;
+  color:var(--muted);font-variant-numeric:tabular-nums;
+}
+.count.done{color:var(--pass)}
+
+/* ---------- code slab ---------- */
+.slab{
+  background:var(--slab);border-radius:12px;padding:18px 18px 18px 16px;
+  overflow-x:auto;border-left:4px solid var(--accent);
+}
+.slab pre{margin:0;font-size:13.5px;line-height:1.75;color:#D6DEE7;white-space:pre}
+.c-kw{color:var(--c-kw)}.c-str{color:var(--c-str)}.c-num{color:var(--c-num)}
+.c-type{color:var(--c-type)}.c-com{color:var(--c-com);font-style:italic}
+
+.notes{margin:18px 0 0;padding:0;list-style:none;display:grid;gap:12px}
+.notes li{
+  background:var(--panel);border:1px solid var(--line);border-radius:10px;
+  padding:14px 16px;font-size:15px;line-height:1.55;
+}
+.notes b{font-weight:600}
+.notes code{
+  font-size:13.5px;background:color-mix(in srgb, var(--ink) 8%, transparent);
+  padding:1px 5px;border-radius:4px;
+}
+
+/* ---------- plan table ---------- */
+.tablewrap{position:relative;overflow-x:auto;background:var(--panel);border:1px solid var(--line);border-radius:12px}
+table{border-collapse:collapse;width:100%;min-width:620px}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);font-size:14px;vertical-align:middle}
+th{
+  font-weight:600;font-size:12px;color:var(--muted);
+  font-family:"IBM Plex Mono",monospace;letter-spacing:.02em;
+}
+tr:last-child td{border-bottom:none}
+td.vname{font-family:"IBM Plex Mono",monospace;font-weight:600;white-space:nowrap}
+tr.given{background:color-mix(in srgb, var(--ink) 4%, transparent)}
+tr.given td{color:var(--muted)}
+tr.rowok{background:var(--passbg)}
+
+select,input.val{
+  font-family:inherit;font-size:14px;color:var(--ink);background:var(--page);
+  border:1px solid var(--line);border-radius:7px;padding:7px 9px;width:100%;
+  min-width:100px;
+}
+input.val{font-family:"IBM Plex Mono",monospace;min-width:92px}
+select:focus-visible,input:focus-visible,textarea:focus-visible,button:focus-visible{
+  outline:2px solid var(--accent);outline-offset:2px;
+}
+td.mark{width:34px;text-align:center}
+.tick{width:18px;height:18px;display:inline-block;vertical-align:middle}
+.tick.ok{color:var(--pass)}.tick.no{color:var(--idle)}
+.hintrow{font-size:13.5px;color:var(--muted);padding:0 12px 12px;margin:0}
+
+/* ---------- build area ---------- */
+.build{display:grid;grid-template-columns:1fr 340px;gap:16px;align-items:start}
+@media (max-width:900px){.build{grid-template-columns:1fr}}
+
+.pane{position:relative;background:var(--panel);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.pane-top{
+  display:flex;align-items:center;justify-content:space-between;gap:10px;
+  padding:9px 12px;border-bottom:1px solid var(--line);
+}
+.pane-label{
+  font-family:"IBM Plex Mono",monospace;font-size:12px;font-weight:600;color:var(--muted);
+}
+.btnrow{display:flex;gap:6px}
+button.mini{
+  font-family:inherit;font-size:12.5px;font-weight:600;color:var(--ink);
+  background:var(--page);border:1px solid var(--line);border-radius:7px;
+  padding:5px 10px;cursor:pointer;
+}
+button.mini:hover{border-color:var(--accent)}
+textarea#code{
+  display:block;width:100%;min-height:460px;resize:vertical;
+  border:none;background:var(--slab);color:#D6DEE7;
+  font-size:13.5px;line-height:1.7;padding:16px;
+  white-space:pre;overflow-wrap:normal;overflow-x:auto;
+  tab-size:4;
+}
+textarea#code:focus{outline:none;box-shadow:inset 0 0 0 2px var(--accent)}
+
+/* ---------- checker ---------- */
+.checker{position:sticky;top:70px}
+@media (max-width:900px){.checker{position:static}}
+.grp{padding:12px 13px;border-bottom:1px solid var(--line)}
+.grp:last-child{border-bottom:none}
+.grp-top{
+  display:flex;justify-content:space-between;align-items:baseline;gap:8px;margin-bottom:9px;
+}
+.grp-name{font-size:13px;font-weight:700;letter-spacing:-.01em}
+.grp-num{font-family:"IBM Plex Mono",monospace;font-size:12px;font-weight:600;color:var(--muted)}
+.grp-num.done{color:var(--pass)}
+.chk{display:flex;gap:9px;align-items:flex-start;padding:5px 0;font-size:13.5px;line-height:1.4}
+.chk .tick{flex:0 0 auto;margin-top:1px}
+.chk-body{flex:1;min-width:0}
+.chk.ok .chk-label{color:var(--muted);text-decoration:line-through;text-decoration-color:var(--passline)}
+.chk-why{
+  display:block;margin-top:3px;font-size:12.5px;line-height:1.45;
+  color:var(--fail);
+}
+.chk-why code{font-size:12px}
+.chk-hint{
+  display:block;margin-top:4px;font-family:"IBM Plex Mono",monospace;
+  font-size:11.5px;line-height:1.5;color:var(--muted);
+  background:color-mix(in srgb, var(--ink) 6%, transparent);
+  padding:5px 7px;border-radius:5px;overflow-x:auto;white-space:pre;
+}
+button.reveal{
+  display:inline-block;margin-top:5px;font-family:inherit;
+  font-size:12px;font-weight:600;color:var(--muted);
+  background:none;border:1px dashed var(--line);border-radius:6px;
+  padding:3px 8px;cursor:pointer;
+}
+button.reveal:hover{color:var(--ink);border-color:var(--muted)}
+
+.allgood{
+  margin:0;padding:14px 16px;background:var(--passbg);
+  border:1px solid var(--passline);border-radius:10px;
+  font-size:15px;font-weight:600;color:var(--pass);
+}
+
+/* ---------- math check ---------- */
+.math{position:relative;background:var(--panel);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.mhead{
+  display:grid;grid-template-columns:1fr 94px 142px;gap:14px;
+  padding:9px 14px;border-bottom:1px solid var(--line);
+  font-family:"IBM Plex Mono",monospace;font-size:12px;font-weight:600;color:var(--muted);
+}
+.mhead span:nth-child(2){text-align:right}
+.mrow{
+  display:grid;grid-template-columns:1fr 94px 142px;gap:14px;align-items:center;
+  padding:12px 14px;border-bottom:1px solid var(--line);
+}
+.mrow:last-child{border-bottom:none}
+.mrow.ok{background:var(--passbg)}
+.mcfg{font-size:14.5px;line-height:1.4}
+.mwant{
+  font-family:"IBM Plex Mono",monospace;font-size:17px;font-weight:600;
+  text-align:right;font-variant-numeric:tabular-nums;
+}
+.mcheck{display:flex;align-items:center;gap:8px;font-size:14px;cursor:pointer}
+.mcheck input{
+  width:18px;height:18px;flex:0 0 auto;cursor:pointer;accent-color:var(--pass);
+}
+.mcheck span{color:var(--muted)}
+.mrow.ok .mcheck span{color:var(--pass);font-weight:600}
+@media (max-width:620px){
+  .mhead{display:none}
+  .mrow{grid-template-columns:1fr 94px;gap:6px 14px}
+  .mcheck{grid-column:1 / -1;margin-top:4px}
+}
+
+.fixlist{
+  margin:16px 0 0;padding:16px 18px;background:var(--panel);
+  border:1px solid var(--line);border-radius:12px;
+}
+.fixlist h4{margin:0 0 11px;font-size:15px;font-weight:700}
+.fixlist dl{margin:0;display:grid;gap:11px}
+.fixlist dt{font-size:14px;font-weight:600;margin-bottom:2px}
+.fixlist dd{margin:0;font-size:14px;color:var(--muted);line-height:1.5}
+.fixlist code{
+  font-size:13px;background:color-mix(in srgb, var(--ink) 8%, transparent);
+  padding:1px 5px;border-radius:4px;
+}
+
+/* ---------- gate ---------- */
+.gate{
+  margin:0 0 20px;padding:15px 17px;border-radius:11px;
+  display:flex;gap:12px;align-items:flex-start;
+  font-size:15px;line-height:1.5;
+  background:var(--failbg);border:1px solid var(--failline);
+}
+.gate.clear{background:var(--passbg);border-color:var(--passline)}
+.gate .tick{flex:0 0 auto;margin-top:2px;width:20px;height:20px}
+.gate .tick.no{color:var(--fail)}
+.gate b{font-weight:700;display:block;margin-bottom:2px}
+.gate.clear b{color:var(--pass)}
+
+/* ---------- extras ---------- */
+/* ---------- run-it callout ---------- */
+.runbox{
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-left:5px solid var(--accent);
+  border-radius:12px;
+  padding:22px 24px;
+}
+.runbox h3{
+  margin:0 0 4px;font-size:20px;font-weight:700;letter-spacing:-.02em;
+}
+.runbox .rlede{margin:0 0 18px;font-size:15px;color:var(--muted);max-width:60ch}
+.runsteps{
+  list-style:none;margin:0;padding:0;display:grid;gap:14px;counter-reset:r;
+}
+.runsteps li{
+  display:grid;grid-template-columns:30px 1fr;gap:13px;align-items:start;
+  counter-increment:r;font-size:15.5px;line-height:1.5;
+}
+.runsteps li::before{
+  content:counter(r);
+  display:flex;align-items:center;justify-content:center;
+  width:30px;height:30px;border-radius:50%;
+  background:var(--accent);color:#fff;
+  font-family:"IBM Plex Mono",monospace;font-size:14px;font-weight:600;
+}
+.runsteps b{font-weight:600}
+.runsteps code{
+  font-size:13.5px;background:color-mix(in srgb, var(--ink) 8%, transparent);
+  padding:1px 5px;border-radius:4px;
+}
+.runsteps small{display:block;margin-top:3px;font-size:13.5px;color:var(--muted);line-height:1.45}
+.runwarn{
+  margin:20px 0 0;padding:13px 15px;border-radius:9px;
+  background:var(--failbg);border:1px solid var(--failline);
+  font-size:14.5px;line-height:1.55;
+}
+.runwarn b{font-weight:700}
+
+.extras{margin:0;padding-left:22px;display:grid;gap:9px;font-size:15px;color:var(--muted)}
+.extras li{padding-left:2px}
+.extras b{color:var(--ink);font-weight:600}
+
+.stuck{width:100%;border-collapse:collapse;min-width:520px}
+.stuck th,.stuck td{padding:10px 12px;border-bottom:1px solid var(--line);font-size:14px;text-align:left}
+.stuck td:first-child{font-weight:600;width:42%}
+.stuck code{font-family:"IBM Plex Mono",monospace;font-size:13px}
+
+footer{
+  margin-top:56px;padding-top:20px;border-top:1px solid var(--line);
+  font-size:13.5px;color:var(--muted);
+}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <div class="bar-in">
+    <div class="bar-name">Lab 9 <em>Pizza Shop</em></div>
+    <div class="track" role="progressbar" aria-labelledby="pglabel" aria-valuemin="0" aria-valuemax="31" aria-valuenow="0" id="pgbar"><i id="pgfill"></i></div>
+    <div class="bar-num" id="pgnum">0 / 31</div>
+    <span class="sr" id="pglabel">Lab progress</span>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="hero">
+    <p class="kicker">iOS App Development</p>
+    <h1>Build a pizza order screen.</h1>
+    <p class="lede">The user builds a pizza and a <b>total price</b> updates as they tap. The price function is written for you. You work out what variables it needs, then build the controls that feed it.</p>
+    <ol class="flow">
+      <li>Read the price function</li>
+      <li>Plan your variables here</li>
+      <li>Write the code in Playground</li>
+      <li>Run it in Playground</li>
+    </ol>
+  </div>
+
+  <!-- ============ 1 ============ -->
+  <section id="s1">
+    <div class="shead"><span class="step-no">Step 1</span><h2>Read the price function</h2></div>
+    <p class="sub">Don't type it. It's already in your starter code below. Just read it.</p>
+
+    <div class="slab"><pre id="fnsrc"></pre></div>
+
+    <ul class="notes">
+      <li><b>This is all stuff you know.</b> A function with a return value from Lesson 4, and the body is <code>if</code> / <code>else</code> from Lesson 5.</li>
+      <li><b><code>var price = 0.0</code></b> — money needs decimals, so <code>price</code> is a <code>Double</code>. Every price is written <code>9.0</code>, not <code>9</code>, for the same reason.</li>
+      <li><b><code>Double(quantity)</code></b> — casting, from Lesson 1. <code>quantity</code> is an <code>Int</code> because it comes from a Stepper, and Swift won't multiply a <code>Double</code> by an <code>Int</code>.</li>
+      <li><b>Notice the order.</b> Quantity is multiplied in <em>before</em> delivery is added. Three pizzas costs three times as much, but you still only pay for delivery once.</li>
+    </ul>
+  </section>
+
+  <!-- ============ 2 ============ -->
+  <section id="s2">
+    <div class="shead">
+      <span class="step-no">Step 2</span><h2>Plan your variables</h2>
+      <span class="count" id="planCount">0 / 7 rows</span>
+    </div>
+    <p class="sub">The function uses six variables that don't exist yet, and your receipt needs a seventh. Work out each one <b>before</b> you write any code. The first row is done for you.</p>
+
+    <div class="tablewrap">
+      <table id="plan">
+        <thead>
+          <tr><th>Variable</th><th>Type</th><th>Starting value</th><th>Control</th><th class="mark"><span class="sr">Correct</span></th></tr>
+        </thead>
+        <tbody id="planBody"></tbody>
+      </table>
+      <p class="hintrow">How to tell: <code>if pepperoni {</code> with nothing after it means it's already true or false. <code>size == "Small"</code> compares it to text. <code>Double(quantity)</code> converts it from a whole number.</p>
+    </div>
+  </section>
+
+  <!-- ============ 3 ============ -->
+  <section id="s3">
+    <div class="shead">
+      <span class="step-no">Steps 3&ndash;6</span><h2>Write your code</h2>
+      <span class="count" id="codeCount">0 / 18 checks</span>
+    </div>
+    <p class="sub">Copy the starter into Swift Playground and build it there, then paste it back here to get checked. Or write it here first and copy it over. The checks update as you type.</p>
+
+    <div class="build">
+      <div class="pane">
+        <div class="pane-top">
+          <span class="pane-label">ContentView.swift</span>
+          <div class="btnrow">
+            <button class="mini" id="copyBtn" type="button">Copy</button>
+            <button class="mini" id="resetBtn" type="button">Reset</button>
+          </div>
+        </div>
+        <label class="sr" for="code">Your Swift code</label>
+        <textarea id="code" spellcheck="false" autocapitalize="off" autocorrect="off"></textarea>
+      </div>
+
+      <div class="pane checker" id="checker"></div>
+    </div>
+  </section>
+
+  <!-- ============ run it ============ -->
+  <section id="srun">
+    <div class="shead"><span class="step-no">Step 7</span><h2>Run it in Playground</h2></div>
+    <p class="sub">Every check above passing means your code has the right <b>pieces</b>. It does not mean the app <b>works</b>. Only Playground can tell you that.</p>
+
+    <div id="gate" class="gate"></div>
+
+    <div class="runbox">
+      <h3>Do this now, before Step 8</h3>
+      <p class="rlede">Even if you wrote your code in Playground the whole time, run it again now that everything is connected.</p>
+
+      <ol class="runsteps">
+        <li><div><b>Check that all 18 boxes above are green.</b><small>Scroll up to Steps 3&ndash;6. If any check is still open, fix it first. Do not paste until the counter says 18 / 18.</small></div></li>
+        <li><div><b>Hit Copy</b> on the editor above.<small>It copies everything, so you don't miss a line.</small></div></li>
+        <li><div><b>Open Swift Playground</b> and make a new App.<small>Not SwiftFiddle. SwiftFiddle only prints text and cannot draw a screen.</small></div></li>
+        <li><div><b>Select everything</b> in <code>ContentView.swift</code> and paste over it.<small>Replace the whole file. Do not paste underneath what is already there.</small></div></li>
+        <li><div><b>Press Run</b> and watch the App Preview.<small>Red errors? Read the first one, fix it, run again. Fix them from the top down.</small></div></li>
+        <li><div><b>Tap every single control.</b><small>The total should move when you change the size, each topping, the quantity, and delivery. If one does nothing, you forgot a <code>$</code>.</small></div></li>
+      </ol>
+
+      <p class="runwarn"><b>Not working?</b> Paste your code back into the editor above so the checker can look at it. The red notes will tell you what is missing.</p>
+    </div>
+  </section>
+
+  <!-- ============ 4 ============ -->
+  <section id="s4">
+    <div class="shead">
+      <span class="step-no">Step 8</span><h2>Test your app</h2>
+      <span class="count" id="mathCount">0 / 6 match</span>
+    </div>
+    <p class="sub">Your app has the right pieces, but it could still add up wrong. Set your controls to each row below and check the total against the answer. <b>Tick the box when yours matches.</b></p>
+
+    <div class="math" id="math"></div>
+
+    <div class="fixlist">
+      <h4>If a row doesn't match</h4>
+      <dl>
+        <dt>Only the size rows are wrong</dt>
+        <dd>Your Picker words don't match the function. <code>"small"</code> is not <code>"Small"</code>, capital letters included.</dd>
+
+        <dt>Rows 1&ndash;3 are right, rows 4&ndash;6 are wrong</dt>
+        <dd>It's the quantity. Check that <code>price = price * Double(quantity)</code> is still there and still comes after the toppings.</dd>
+
+        <dt>A row is off by exactly $4.00</dt>
+        <dd>That's the delivery fee. It gets added <em>after</em> the quantity multiply, not before.</dd>
+
+        <dt>Every single row is $4.00 too high</dt>
+        <dd>Your <code>delivery</code> starts as <code>true</code>. It should start as <code>false</code>.</dd>
+
+        <dt>A row is off by a topping price</dt>
+        <dd>A toggle is wired to the wrong variable. Check each <code>isOn:</code> against the function.</dd>
+      </dl>
+    </div>
+  </section>
+
+  <!-- ============ 5 ============ -->
+  <section id="s5">
+    <div class="shead"><h2>If you finish early</h2></div>
+    <ul class="extras">
+      <li>An <b>if / else</b> that prints "Free delivery!" when the total is over $30, and takes the $4 off</li>
+      <li>A <b>DatePicker</b> for the pickup time, shown as a weekday and a time</li>
+      <li>A <b>tax line</b>, so the receipt shows subtotal, tax, and final total. Tax is the subtotal times <code>0.08</code></li>
+      <li>A <b>third Section</b> listing what each topping costs, so the user knows what they're paying for</li>
+      <li>A <b>ColorPicker</b> that changes the color of the total</li>
+    </ul>
+  </section>
+
+  <!-- ============ 6 ============ -->
+  <section id="s6">
+    <div class="shead"><h2>Stuck?</h2></div>
+    <div class="tablewrap">
+      <table class="stuck">
+        <thead><tr><th>Problem</th><th>Check this</th></tr></thead>
+        <tbody>
+          <tr><td><code>Cannot find '___' in scope</code></td><td>That <code>@State</code> line is missing, or spelled differently</td></tr>
+          <tr><td>The size never changes the price</td><td>Your Picker words don't match the function. <code>"small"</code> is not <code>"Small"</code></td></tr>
+          <tr><td>The total never changes at all</td><td>You wrote <code>total</code> instead of <code>total()</code></td></tr>
+          <tr><td><code>Cannot find 'total' in scope</code></td><td>The function is outside the struct. It goes inside, after <code>body</code></td></tr>
+          <tr><td>A control shows but does nothing</td><td>You forgot the <code>$</code></td></tr>
+          <tr><td><code>Cannot convert value of type...</code></td><td>A starting value is the wrong type. Check your Step 2 table</td></tr>
+          <tr><td>Right at 1 pizza, wrong at 3</td><td>Don't retype the function. Compare yours to Step 1 line by line</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <footer>Your work saves in this browser as you type. Use the same browser and the same computer to pick it back up.</footer>
+
+</div>
+
+<script>
+/* =========================================================
+   The given price function
+   ========================================================= */
+const FN = `func total() -> Double {
+
+    var price = 0.0
+
+    // the base price, from the size
+    if size == "Small" {
+        price = 9.0
+    } else if size == "Medium" {
+        price = 12.0
+    } else {
+        price = 15.0
+    }
+
+    // the toppings
+    if pepperoni {
+        price = price + 2.0
+    }
+
+    if mushrooms {
+        price = price + 1.5
+    }
+
+    if extraCheese {
+        price = price + 2.5
+    }
+
+    // how many pizzas
+    price = price * Double(quantity)
+
+    // delivery is charged once, no matter how many pizzas
+    if delivery {
+        price = price + 4.0
+    }
+
+    return price
+}`;
+
+const SKELETON = `import SwiftUI
+
+struct ContentView: View {
+
+    // YOUR @STATE LINES GO HERE
+
+
+    let sizes = ["Small", "Medium", "Large"]
+
+    var body: some View {
+        Form {
+
+            Section("Build your pizza") {
+
+                // YOUR CONTROLS GO HERE
+
+            }
+
+            Section("Total") {
+
+                Text("Total: \\(total(), format: .currency(code: "USD"))")
+                    .font(.title)
+
+                // YOUR RECEIPT LINE GOES HERE
+
+            }
+
+        }
+    }
+
+${FN.split('\n').map(l => l ? '    ' + l : l).join('\n')}
+}`;
+
+/* =========================================================
+   helpers
+   ========================================================= */
+function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+
+function highlight(src){
+  const re=/(\/\/[^\n]*)|("(?:[^"\\]|\\.)*")|\b(func|var|let|return|if|else|struct|import|some|in)\b|\b(Double|Int|String|Bool|Color|Date|View|true|false)\b|\b(\d+\.?\d*)\b/g;
+  let out='',last=0,m;
+  while((m=re.exec(src))!==null){
+    out+=esc(src.slice(last,m.index));
+    const cls=m[1]?'c-com':m[2]?'c-str':m[3]?'c-kw':m[4]?'c-type':'c-num';
+    out+='<span class="'+cls+'">'+esc(m[0])+'</span>';
+    last=m.index+m[0].length;
+  }
+  return out+esc(src.slice(last));
+}
+
+const TICK_OK='<svg class="tick ok" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="8.5" fill="currentColor" opacity=".16"/><path d="M6 10.4l2.6 2.6L14.2 7.4" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+const TICK_NO='<svg class="tick no" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="8.5" stroke="currentColor" stroke-width="1.6" stroke-dasharray="2.5 2.5"/></svg>';
+
+function store(k,v){try{localStorage.setItem('pizzalab.'+k,v);}catch(e){}}
+function load(k){try{return localStorage.getItem('pizzalab.'+k);}catch(e){return null;}}
+
+/* =========================================================
+   Step 2 — the plan table
+   ========================================================= */
+const TYPES=['','String','Int','Double','Bool','Color','Date'];
+const CTRLS=['','TextField','Toggle','Stepper','Picker','Slider','ColorPicker','DatePicker'];
+
+const ROWS=[
+  {v:'size',        given:true,  type:'String', val:'"Medium"', ctrl:'Picker',
+   valTest:/^"[^"]*"$/,          valHint:'a size in quotes, like "Medium"'},
+  {v:'pepperoni',   type:'Bool', ctrl:'Toggle',
+   valTest:/^(true|false)$/,     valHint:'true or false'},
+  {v:'mushrooms',   type:'Bool', ctrl:'Toggle',
+   valTest:/^(true|false)$/,     valHint:'true or false'},
+  {v:'extraCheese', type:'Bool', ctrl:'Toggle',
+   valTest:/^(true|false)$/,     valHint:'true or false'},
+  {v:'quantity',    type:'Int',  ctrl:'Stepper',
+   valTest:/^\d+$/,              valHint:'a whole number, like 1'},
+  {v:'delivery',    type:'Bool', ctrl:'Toggle',
+   valTest:/^(true|false)$/,     valHint:'true or false'},
+  {v:'customerName',type:'String',ctrl:'TextField',
+   valTest:/^"[^"]*"$/,          valHint:'empty quotes, ""'}
+];
+
+const planBody=document.getElementById('planBody');
+
+ROWS.forEach((r,i)=>{
+  const tr=document.createElement('tr');
+  if(r.given){
+    tr.className='given';
+    tr.innerHTML='<td class="vname">'+r.v+'</td><td>'+r.type+'</td><td><code>'+esc(r.val)+'</code></td><td>'+r.ctrl+'</td><td class="mark">'+TICK_OK+'</td>';
+  }else{
+    tr.innerHTML=
+      '<td class="vname">'+r.v+'</td>'+
+      '<td><select data-k="type" data-i="'+i+'" aria-label="Type for '+r.v+'">'+
+        TYPES.map(t=>'<option value="'+t+'">'+(t||'pick one')+'</option>').join('')+'</select></td>'+
+      '<td><input class="val" type="text" data-k="val" data-i="'+i+'" placeholder="?" aria-label="Starting value for '+r.v+'"></td>'+
+      '<td><select data-k="ctrl" data-i="'+i+'" aria-label="Control for '+r.v+'">'+
+        CTRLS.map(c=>'<option value="'+c+'">'+(c||'pick one')+'</option>').join('')+'</select></td>'+
+      '<td class="mark" data-mark="'+i+'">'+TICK_NO+'</td>';
+  }
+  planBody.appendChild(tr);
+});
+
+function planState(){
+  const s={};
+  planBody.querySelectorAll('[data-k]').forEach(el=>{
+    s[el.dataset.i+'.'+el.dataset.k]=el.value;
+  });
+  return s;
+}
+
+function rowOK(i){
+  const r=ROWS[i];
+  if(r.given) return true;
+  const t=planBody.querySelector('[data-i="'+i+'"][data-k="type"]');
+  const v=planBody.querySelector('[data-i="'+i+'"][data-k="val"]');
+  const c=planBody.querySelector('[data-i="'+i+'"][data-k="ctrl"]');
+  if(!t||!v||!c) return false;
+  return t.value===r.type && c.value===r.ctrl && r.valTest.test(v.value.trim());
+}
+
+function renderPlan(){
+  let n=0;
+  ROWS.forEach((r,i)=>{
+    const ok=rowOK(i);
+    if(ok) n++;
+    if(r.given) return;
+    const cell=planBody.querySelector('[data-mark="'+i+'"]');
+    if(cell) cell.innerHTML = ok ? TICK_OK : TICK_NO;
+    const tr=cell ? cell.parentElement : null;
+    if(tr) tr.classList.toggle('rowok', ok);
+  });
+  const el=document.getElementById('planCount');
+  el.textContent=n+' / 7 rows';
+  el.classList.toggle('done', n===7);
+  store('plan', JSON.stringify(planState()));
+  return n;
+}
+
+planBody.addEventListener('input',()=>{renderPlan();bumpProgress();});
+planBody.addEventListener('change',()=>{renderPlan();bumpProgress();});
+
+(function restorePlan(){
+  const raw=load('plan');
+  if(!raw) return;
+  let s;try{s=JSON.parse(raw);}catch(e){return;}
+  planBody.querySelectorAll('[data-k]').forEach(el=>{
+    const k=el.dataset.i+'.'+el.dataset.k;
+    if(s[k]!==undefined) el.value=s[k];
+  });
+})();
+
+/* =========================================================
+   Steps 3-6 — the code checker
+   ========================================================= */
+function declOf(code,name){
+  const re=new RegExp('(@State\\s+)?var\\s+'+name+'\\b\\s*(?::\\s*(\\w+)\\s*)?=\\s*([^\\n]*)');
+  const m=code.match(re);
+  if(!m) return null;
+  let val=(m[3]||'').replace(/\/\/.*$/,'').trim();
+  return {state:!!m[1], annotated:m[2]||null, val:val};
+}
+
+function stateCheck(r){
+  return {
+    group:'Variables',
+    id:'v-'+r.v,
+    label:'<code>'+r.v+'</code>',
+    hint:'@State var '+r.v+' = '+(r.val||(r.valTest.source.includes('true')?'false':(r.v==='quantity'?'1':'""'))),
+    run:function(code){
+      const d=declOf(code,r.v);
+      if(!d) return {ok:false, why:'No line for <code>'+r.v+'</code> yet.'};
+      if(!d.state) return {ok:false, why:'You wrote <code>var '+r.v+'</code> but it needs <code>@State</code> in front.'};
+      if(!d.val) return {ok:false, why:'<code>'+r.v+'</code> has no starting value.'};
+      if(!r.valTest.test(d.val))
+        return {ok:false, why:'<code>'+esc(d.val)+'</code> is not right for <code>'+r.v+'</code>. Needs '+r.valHint+'.'};
+      return {ok:true};
+    }
+  };
+}
+
+const CHECKS=[
+  ...ROWS.map(stateCheck),
+
+  { group:'Controls', id:'c-picker', label:'Picker for the size',
+    hint:'Picker("Size", selection: $size) {\n    ForEach(sizes, id: \\.self) { name in\n        Text(name)\n    }\n}',
+    run:function(c){
+      if(!/Picker\s*\(/.test(c)) return {ok:false, why:'No <code>Picker</code> yet.'};
+      if(/selection:\s*size\b/.test(c) && !/selection:\s*\$size\b/.test(c))
+        return {ok:false, why:'Your Picker needs the <code>$</code> on <code>$size</code>.'};
+      if(!/selection:\s*\$size\b/.test(c)) return {ok:false, why:'Your Picker is not connected to <code>$size</code>.'};
+      return {ok:true};
+    }},
+
+  { group:'Controls', id:'c-textfield', label:'TextField for the name',
+    hint:'TextField("Your name", text: $customerName)',
+    run:function(c){
+      if(!/TextField\s*\(/.test(c)) return {ok:false, why:'No <code>TextField</code> yet.'};
+      if(/text:\s*customerName\b/.test(c) && !/text:\s*\$customerName\b/.test(c))
+        return {ok:false, why:'Your TextField needs the <code>$</code> on <code>$customerName</code>.'};
+      if(!/text:\s*\$customerName\b/.test(c)) return {ok:false, why:'Your TextField is not connected to <code>$customerName</code>.'};
+      return {ok:true};
+    }},
+
+  ...['pepperoni','mushrooms','extraCheese','delivery'].map(function(v){
+    return { group:'Controls', id:'c-tog-'+v, label:'Toggle for <code>'+v+'</code>',
+      hint:'Toggle("'+v.charAt(0).toUpperCase()+v.slice(1)+'", isOn: $'+v+')',
+      run:function(c){
+        const withD=new RegExp('isOn:\\s*\\$'+v+'\\b');
+        const noD=new RegExp('isOn:\\s*'+v+'\\b');
+        if(withD.test(c)) return {ok:true};
+        if(noD.test(c)) return {ok:false, why:'Missing the <code>$</code> on <code>$'+v+'</code>.'};
+        if(!/Toggle\s*\(/.test(c)) return {ok:false, why:'No <code>Toggle</code> yet.'};
+        return {ok:false, why:'No Toggle connected to <code>$'+v+'</code>.'};
+      }};
+  }),
+
+  { group:'Controls', id:'c-stepper', label:'Stepper for <code>quantity</code>',
+    hint:'Stepper("How many: \\(quantity)", value: $quantity, in: 1...10)',
+    run:function(c){
+      if(!/Stepper\s*\(/.test(c)) return {ok:false, why:'No <code>Stepper</code> yet.'};
+      if(/value:\s*quantity\b/.test(c) && !/value:\s*\$quantity\b/.test(c))
+        return {ok:false, why:'Your Stepper needs the <code>$</code> on <code>$quantity</code>.'};
+      if(!/value:\s*\$quantity\b/.test(c)) return {ok:false, why:'Your Stepper is not connected to <code>$quantity</code>.'};
+      if(!/in:\s*\d+\s*\.\.\.\s*\d+/.test(c)) return {ok:false, why:'Give it a range, like <code>in: 1...10</code>.'};
+      return {ok:true};
+    }},
+
+  { group:'Structure', id:'s-inside', label:'<code>total()</code> is inside the struct',
+    hint:'It goes after the closing } of body, but before the struct’s own closing }',
+    run:function(c){
+      const i=c.search(/func\s+total\s*\(/);
+      if(i<0) return {ok:false, why:'The <code>total()</code> function is gone. Hit Reset to get it back.'};
+      let depth=0;
+      for(let k=0;k<i;k++){ const ch=c[k]; if(ch==='{')depth++; else if(ch==='}')depth--; }
+      if(depth<1) return {ok:false, why:'<code>total()</code> ended up outside the struct. Move it above the very last <code>}</code>.'};
+      return {ok:true};
+    }},
+
+  { group:'Structure', id:'s-money', label:'The total is shown as money',
+    hint:'Text("Total: \\(total(), format: .currency(code: "USD"))")',
+    run:function(c){
+      if(!/\\\(\s*total\s*\(\s*\)/.test(c)){
+        if(/\\\(\s*total\b/.test(c)) return {ok:false, why:'You wrote <code>total</code> without the parentheses. Calling it needs <code>total()</code>.'};
+        return {ok:false, why:'Nothing in a <code>Text</code> calls <code>total()</code> yet.'};
+      }
+      if(!/format:\s*\.currency/.test(c))
+        return {ok:false, why:'Add <code>format: .currency(code: "USD")</code> or you will see <code>14.5</code> instead of <code>$14.50</code>.'};
+      return {ok:true};
+    }},
+
+  { group:'Structure', id:'s-receipt', label:'A receipt line using 3+ variables',
+    hint:'Text("\\(customerName) ordered \\(quantity) \\(size) pizzas.")',
+    run:function(c){
+      const texts=c.match(/Text\s*\(\s*"(?:[^"\\]|\\.)*"/g)||[];
+      let best=0;
+      for(const t of texts){
+        if(/total\s*\(/.test(t)) continue;
+        const vars=new Set();
+        const re=/\\\(\s*([A-Za-z_]\w*)/g;
+        let m;
+        while((m=re.exec(t))!==null) vars.add(m[1]);
+        if(vars.size>best) best=vars.size;
+      }
+      if(best===0) return {ok:false, why:'No receipt line yet. Write one <code>Text</code> that uses your variables.'};
+      if(best<3) return {ok:false, why:'Your receipt uses '+best+' variable'+(best===1?'':'s')+'. It needs at least 3.'};
+      return {ok:true};
+    }},
+
+  { group:'Structure', id:'s-sections', label:'Two Sections with titles',
+    hint:'Section("Build your pizza") { } and Section("Total") { }',
+    run:function(c){
+      const n=(c.match(/Section\s*\(\s*"/g)||[]).length;
+      if(n<2) return {ok:false, why:'Found '+n+' titled Section'+(n===1?'':'s')+'. You need 2.'};
+      return {ok:true};
+    }}
+];
+
+const codeEl=document.getElementById('code');
+const checkerEl=document.getElementById('checker');
+
+/* which examples the student has chosen to reveal */
+const revealed=new Set();
+(function restoreRevealed(){
+  const raw=load('revealed');
+  if(!raw) return;
+  try{ JSON.parse(raw).forEach(function(id){revealed.add(id);}); }catch(e){}
+})();
+
+checkerEl.addEventListener('click',function(e){
+  const b=e.target.closest('[data-reveal]');
+  if(!b) return;
+  revealed.add(b.dataset.reveal);
+  store('revealed', JSON.stringify(Array.from(revealed)));
+  runChecks();
+});
+
+function runChecks(){
+  const c=codeEl.value;
+  const groups={};
+  let pass=0;
+  CHECKS.forEach(function(chk){
+    let res;
+    try{ res=chk.run(c); }catch(e){ res={ok:false, why:'Could not read that.'}; }
+    if(res.ok) pass++;
+    (groups[chk.group]=groups[chk.group]||[]).push({chk:chk,res:res});
+  });
+
+  let html='';
+  Object.keys(groups).forEach(function(g){
+    const rows=groups[g];
+    const n=rows.filter(function(r){return r.res.ok;}).length;
+    html+='<div class="grp"><div class="grp-top"><span class="grp-name">'+g+'</span>'+
+          '<span class="grp-num'+(n===rows.length?' done':'')+'">'+n+'/'+rows.length+'</span></div>';
+    rows.forEach(function(r){
+      html+='<div class="chk'+(r.res.ok?' ok':'')+'">'+(r.res.ok?TICK_OK:TICK_NO)+
+            '<div class="chk-body"><span class="chk-label">'+r.chk.label+'</span>';
+      if(!r.res.ok){
+        if(r.res.why) html+='<span class="chk-why">'+r.res.why+'</span>';
+        if(r.chk.hint){
+          if(revealed.has(r.chk.id)){
+            html+='<span class="chk-hint">'+esc(r.chk.hint)+'</span>';
+          }else{
+            html+='<button class="reveal" type="button" data-reveal="'+r.chk.id+'">Show an example</button>';
+          }
+        }
+      }
+      html+='</div></div>';
+    });
+    html+='</div>';
+  });
+
+  if(pass===CHECKS.length){
+    html='<div class="grp"><p class="allgood">All 18 checks pass. Now go run it in Playground &mdash; Step 7.</p></div>'+html;
+  }
+
+  checkerEl.innerHTML=html;
+
+  const el=document.getElementById('codeCount');
+  el.textContent=pass+' / '+CHECKS.length+' checks';
+  el.classList.toggle('done', pass===CHECKS.length);
+
+  const gate=document.getElementById('gate');
+  if(gate){
+    const all=(pass===CHECKS.length);
+    gate.classList.toggle('clear', all);
+    gate.innerHTML = all
+      ? TICK_OK+'<div><b>All 18 checks are green.</b>You are clear to paste into Playground.</div>'
+      : '<svg class="tick no" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="8.5" stroke="currentColor" stroke-width="1.6"/><path d="M10 5.6v5" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"/><circle cx="10" cy="14.2" r="1.15" fill="currentColor"/></svg>'+
+        '<div><b>Not yet &mdash; '+pass+' of 18 checks are green.</b>Go back to Steps 3&ndash;6 and finish them first. Pasting code that is still missing pieces just gives you a screen full of red errors in Playground.</div>';
+  }
+
+  store('code', c);
+  return pass;
+}
+
+let t=null;
+codeEl.addEventListener('input',function(){
+  clearTimeout(t);
+  t=setTimeout(function(){runChecks();bumpProgress();},160);
+});
+
+document.getElementById('copyBtn').addEventListener('click',function(){
+  const b=this;
+  function done(msg){ b.textContent=msg; setTimeout(function(){b.textContent='Copy';},1400); }
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(codeEl.value).then(function(){done('Copied');},function(){done('Select all');});
+  }else{
+    codeEl.select();
+    try{ document.execCommand('copy'); done('Copied'); }catch(e){ done('Select all'); }
+  }
+});
+
+document.getElementById('resetBtn').addEventListener('click',function(){
+  if(!confirm('Replace everything in the editor with the fresh starter code? Your typing will be lost.')) return;
+  codeEl.value=SKELETON;
+  runChecks();bumpProgress();
+});
+
+/* =========================================================
+   Step 7 — the math check
+   ========================================================= */
+const CASES=[
+  {cfg:'Medium, no toppings, 1 pizza, pickup',      want:12},
+  {cfg:'Medium, pepperoni, 1 pizza, pickup',        want:14},
+  {cfg:'Small, all three toppings, 1 pizza, pickup',want:15},
+  {cfg:'Large, no toppings, 3 pizzas, pickup',      want:45},
+  {cfg:'Large, no toppings, 3 pizzas, delivery',    want:49},
+  {cfg:'Small, pepperoni, 2 pizzas, delivery',      want:26}
+];
+
+const mathEl=document.getElementById('math');
+mathEl.innerHTML=
+  '<div class="mhead"><span>Set your app to this</span><span>Total</span><span></span></div>'+
+  CASES.map(function(c,i){
+    return '<div class="mrow" data-row="'+i+'">'+
+      '<div class="mcfg">'+c.cfg+'</div>'+
+      '<div class="mwant">$'+c.want.toFixed(2)+'</div>'+
+      '<label class="mcheck"><input type="checkbox" data-case="'+i+'"> <span>Mine matches</span></label>'+
+      '</div>';
+  }).join('');
+
+function renderMath(){
+  let n=0;
+  const vals={};
+  CASES.forEach(function(c,i){
+    const cb=mathEl.querySelector('[data-case="'+i+'"]');
+    const row=mathEl.querySelector('[data-row="'+i+'"]');
+    vals[i]=cb.checked?1:0;
+    row.classList.toggle('ok', cb.checked);
+    if(cb.checked) n++;
+  });
+  const el=document.getElementById('mathCount');
+  el.textContent=n+' / 6 match';
+  el.classList.toggle('done', n===6);
+  store('math', JSON.stringify(vals));
+  return n;
+}
+
+mathEl.addEventListener('change',function(){renderMath();bumpProgress();});
+
+(function restoreMath(){
+  const raw=load('math');
+  if(!raw) return;
+  let s;try{s=JSON.parse(raw);}catch(e){return;}
+  CASES.forEach(function(c,i){
+    const cb=mathEl.querySelector('[data-case="'+i+'"]');
+    if(cb && s[i]) cb.checked=true;
+  });
+})();
+
+/* =========================================================
+   progress
+   ========================================================= */
+const TOTAL_CHECKS=7+CHECKS.length+6;
+function bumpProgress(){
+  let n=0;
+  ROWS.forEach(function(r,i){ if(rowOK(i)) n++; });
+  let p=0;
+  CHECKS.forEach(function(chk){
+    try{ if(chk.run(codeEl.value).ok) p++; }catch(e){}
+  });
+  let m=0;
+  CASES.forEach(function(c,i){
+    const cb=mathEl.querySelector('[data-case="'+i+'"]');
+    if(cb && cb.checked) m++;
+  });
+  const done=n+p+m;
+  document.getElementById('pgnum').textContent=done+' / '+TOTAL_CHECKS;
+  document.getElementById('pgfill').style.width=(done/TOTAL_CHECKS*100)+'%';
+  document.getElementById('pgbar').setAttribute('aria-valuenow',String(done));
+  document.getElementById('pgbar').setAttribute('aria-valuemax',String(TOTAL_CHECKS));
+}
+
+/* =========================================================
+   boot
+   ========================================================= */
+document.getElementById('fnsrc').innerHTML=highlight(FN);
+
+const saved=load('code');
+codeEl.value=(saved && saved.trim()) ? saved : SKELETON;
+
+renderPlan();
+runChecks();
+renderMath();
+bumpProgress();
+</script>
+</body>
+</html>
+
+</body></html>
